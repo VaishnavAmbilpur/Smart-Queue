@@ -15,7 +15,7 @@ const app = express();
 app.use(cookieParser());
 
 app.use(cors({
-  origin: "https://smart-queue-flame.vercel.app/",
+  origin: "https://smart-queue-theta.vercel.app/",
   credentials: true
 }));
 app.use(express.json());
@@ -31,7 +31,7 @@ const server = http.createServer(app);
 const { Server } = require('socket.io');
 const io = new Server(server, {
   cors: {
-    origin: "https://smart-queue-flame.vercel.app/",
+    origin: "https://smart-queue-theta.vercel.app/",
     methods: ["GET", "POST","PUT"],
     credentials: true
   }
