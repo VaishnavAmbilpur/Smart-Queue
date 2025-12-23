@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from "react";
 import api from "../services/api";
 import { socket } from "../services/socket";
+import Loader from "../components/Loader";
 
 export default function ReceptionPanel() {
   const doctorId = localStorage.getItem("doctorId");
+  if (!doctorId) return <Loader />;
 
   const [patientName, setPatientName] = useState("");
   const [patientNumber, setPatientNumber] = useState("");
   const [description, setDescription] = useState("");
   const [queue, setQueue] = useState([]);
   const [msg, setMsg] = useState("");
+
+
 
   useEffect(() => {
     if (!doctorId) return;

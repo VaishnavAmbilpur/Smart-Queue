@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import api from "../services/api";
 import { useNavigate } from "react-router-dom";
+import Loader from "../components/Loader";
 
 export default function DoctorDashboard() {
 
@@ -46,7 +47,7 @@ export default function DoctorDashboard() {
     navigate("/");
   }
 
-  if (!doctor) return null;
+  if (!doctor) return <Loader />;
 
   return (
     <div className="min-h-screen flex justify-center items-center
