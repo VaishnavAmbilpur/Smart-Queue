@@ -1,7 +1,7 @@
 
 # Smart Queue
 
-Smart Queue is a web-based queue management system designed to simplify and digitize waiting lines in places like clinics, offices, or service centers.
+Smart Queue is a web-based queue management system designed to simplify and digitize waiting lines in places clinic and Hospitals.
 
 It allows users to take a queue number and view the current queue status, while staff can manage and advance the queue efficiently.
 
