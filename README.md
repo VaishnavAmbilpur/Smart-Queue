@@ -100,6 +100,8 @@ Open the URL shown in the terminal to access the application.
 | 🧑‍💻 **Vaishnav Ambilpur**     | Full Stack Developer / Team Lead |
 | 👨‍💻 **Nadam Eshwanth Raj**    | Full Stack Developer             |
 | 👨‍💻 **Vishnu Vardhan Vemula** | Full Stack Developer             |
+| 👨‍💻 **Aadithya Motapalukula** | Full Stack Developer             |
+
 
 ---
 
