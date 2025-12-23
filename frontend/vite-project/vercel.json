@@ -1,14 +1,5 @@
 {
   "routes": [
-    { "src": "/signup", "dest": "/" },
-    { "src": "/login", "dest": "/" },
-
-    { "src": "/reception", "dest": "/" },
-    { "src": "/doctor", "dest": "/" },
-    { "src": "/history", "dest": "/" },
-
-    { "src": "/status/(.*)", "dest": "/" },
-
     { "src": "/(.*)", "dest": "/" }
   ]
 }
