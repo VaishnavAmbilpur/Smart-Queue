@@ -12,6 +12,7 @@ export default function ReceptionPanel() {
   const [description, setDescription] = useState("");
   const [queue, setQueue] = useState([]);
   const [msg, setMsg] = useState("");
+  const [queueLoading, setQueueLoading] = useState(true);
 
 
 
@@ -40,10 +41,13 @@ export default function ReceptionPanel() {
 
   async function loadQueue() {
     try {
+      setQueueLoading(true);
       const res = await api.get(`/queue/${doctorId}`);
       setQueue(res.data);
     } catch (err) {
       console.log(err);
+    }finally{
+      setQueueLoading(false);
     }
   }
 
@@ -162,6 +166,19 @@ export default function ReceptionPanel() {
             </thead>
 
             <tbody>
+              {queueLoading && (
+                <tr>
+                  <td colSpan="6" className="p-6">
+                    <Loader />
+                  </td>
+                </tr>
+              )}
+
+
+
+
+
+
               {queue.map((p, idx) => {
                 const link = `${window.location.origin}/status/${p.uniqueLinkId}`;
 
