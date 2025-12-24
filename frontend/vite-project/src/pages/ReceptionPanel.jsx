@@ -75,24 +75,30 @@ export default function ReceptionPanel() {
   }
 
   async function moveUp(index) {
-    if (index === 0) return;
-    const topThree = [...queue.slice(0, 3)];
-    [topThree[index - 1], topThree[index]] = [topThree[index], topThree[index - 1]];
+  const topLimit = Math.min(3, queue.length);
+  if (index === 0 || index >= topLimit) return;
 
-    await api.put(`/queue/reorder/${doctorId}`, {
-      newOrder: topThree.map(p => p._id)
-    });
-  }
+  const top = [...queue.slice(0, topLimit)];
+  [top[index - 1], top[index]] = [top[index], top[index - 1]];
+
+  await api.put(`/queue/reorder/${doctorId}`, {
+    newOrder: top.map(p => p._id)
+  });
+}
+
 
   async function moveDown(index) {
-    if (index === 2) return;
-    const topThree = [...queue.slice(0, 3)];
-    [topThree[index + 1], topThree[index]] = [topThree[index], topThree[index + 1]];
+  const topLimit = Math.min(3, queue.length);
+  if (index >= topLimit - 1) return;
 
-    await api.put(`/queue/reorder/${doctorId}`, {
-      newOrder: topThree.map(p => p._id)
-    });
-  }
+  const top = [...queue.slice(0, topLimit)];
+  [top[index + 1], top[index]] = [top[index], top[index + 1]];
+
+  await api.put(`/queue/reorder/${doctorId}`, {
+    newOrder: top.map(p => p._id)
+  });
+}
+
 
   return (
     <div className="min-h-screen
@@ -213,7 +219,7 @@ export default function ReceptionPanel() {
                     </td>
 
                     <td className="px-4 py-3 flex gap-2 justify-center">
-                      {idx < 3 && (
+                      {idx < Math.min(3, queue.length)&& (
                         <>
                           <button
                             className="px-3 bg-blue-500 hover:bg-blue-600 rounded shadow"
