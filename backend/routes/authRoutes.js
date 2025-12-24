@@ -77,11 +77,11 @@ router.post("/login", async (req, res) => {
 
 router.post("/logout", (req, res) => {
   try {
-    res.clearCookie("token", {
-      httpOnly: true,
-      sameSite: "strict",
-      secure: false
-    });
+      res.clearCookie("token", {
+    httpOnly: true,
+    sameSite: "none",
+    secure: true
+  });
     res.json({ message: "Logout successful" });
   } catch (err) {
     console.error("Logout Error:", err);
