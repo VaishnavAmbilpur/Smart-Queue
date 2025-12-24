@@ -78,26 +78,30 @@ export default function ReceptionPanel() {
   const topLimit = Math.min(3, queue.length);
   if (index === 0 || index >= topLimit) return;
 
-  const top = [...queue.slice(0, topLimit)];
-  [top[index - 1], top[index]] = [top[index], top[index - 1]];
+  const updated = [...queue];
+  [updated[index - 1], updated[index]] = [updated[index], updated[index - 1]];
+
+  setQueue(updated); // instant UI update
 
   await api.put(`/queue/reorder/${doctorId}`, {
-    newOrder: top.map(p => p._id)
+    newOrder: updated.map(p => p._id)
   });
 }
 
-
-  async function moveDown(index) {
+async function moveDown(index) {
   const topLimit = Math.min(3, queue.length);
   if (index >= topLimit - 1) return;
 
-  const top = [...queue.slice(0, topLimit)];
-  [top[index + 1], top[index]] = [top[index], top[index + 1]];
+  const updated = [...queue];
+  [updated[index + 1], updated[index]] = [updated[index], updated[index + 1]];
+
+  setQueue(updated); // instant UI update
 
   await api.put(`/queue/reorder/${doctorId}`, {
-    newOrder: top.map(p => p._id)
+    newOrder: updated.map(p => p._id)
   });
 }
+
 
 
   return (
