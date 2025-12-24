@@ -204,16 +204,48 @@ router.put("/cancel/:id", auth, async (req, res) => {
 });
 
 
+// router.put("/reorder/:doctorId", auth, async (req, res) => {
+//   try {
+//     const { newOrder } = req.body; 
+
+//     const queue = await Patient.find({
+//       doctorId: req.params.doctorId,
+//       status: "waiting"
+//     }).sort({ tokenNumber: 1 });
+
+//     if (queue.length < 3)return res.json({ message: "Less than 3 patients" });
+
+//     for (let i = 0; i < newOrder.length; i++) {
+//       await Patient.findByIdAndUpdate(newOrder[i], {
+//         tokenNumber: i + 1
+//       });
+//     }
+
+//     global.io.to(req.params.doctorId.toString()).emit("queueUpdated");
+
+//     res.json({ message: "Reordered successfully" });
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json({ message: "Server error" });
+//   }
+// });
+
+
 router.put("/reorder/:doctorId", auth, async (req, res) => {
   try {
-    const { newOrder } = req.body; 
+    const { newOrder } = req.body;
 
-    const queue = await Patient.find({
+    let queue = await Patient.find({
       doctorId: req.params.doctorId,
       status: "waiting"
     }).sort({ tokenNumber: 1 });
 
-    if (queue.length < 3)return res.json({ message: "Less than 3 patients" });
+    const topLimit = Math.min(3, queue.length);
+
+    const currentTop = queue.slice(0, topLimit);
+
+    if (newOrder.length !== topLimit)
+      return res.status(400).json({ message: "Invalid reorder request" });
 
     for (let i = 0; i < newOrder.length; i++) {
       await Patient.findByIdAndUpdate(newOrder[i], {
@@ -221,14 +253,24 @@ router.put("/reorder/:doctorId", auth, async (req, res) => {
       });
     }
 
+    let nextToken = newOrder.length + 1;
+
+    for (let i = topLimit; i < queue.length; i++) {
+      await Patient.findByIdAndUpdate(queue[i]._id, {
+        tokenNumber: nextToken++
+      });
+    }
+
     global.io.to(req.params.doctorId.toString()).emit("queueUpdated");
 
     res.json({ message: "Reordered successfully" });
+
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "Server error" });
   }
 });
+
 
 
 
