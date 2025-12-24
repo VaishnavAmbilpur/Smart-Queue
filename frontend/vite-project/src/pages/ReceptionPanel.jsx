@@ -81,7 +81,7 @@ export default function ReceptionPanel() {
   const updated = [...queue];
   [updated[index - 1], updated[index]] = [updated[index], updated[index - 1]];
 
-  setQueue(updated); // instant UI update
+  setQueue(updated); 
 
   await api.put(`/queue/reorder/${doctorId}`, {
     newOrder: updated.map(p => p._id)
@@ -95,7 +95,7 @@ async function moveDown(index) {
   const updated = [...queue];
   [updated[index + 1], updated[index]] = [updated[index], updated[index + 1]];
 
-  setQueue(updated); // instant UI update
+  setQueue(updated); 
 
   await api.put(`/queue/reorder/${doctorId}`, {
     newOrder: updated.map(p => p._id)
