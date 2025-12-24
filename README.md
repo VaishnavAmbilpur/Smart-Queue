@@ -75,6 +75,8 @@ npm start
 ```
 
 The backend will run on the configured port (default: `http://localhost:5000`).
+Change the Cors in server.js the origin to the url of frontend localhost
+since it is connected to Deployed Website (Using Vercel)
 
 ---
 
@@ -85,6 +87,8 @@ cd frontend/vite-project
 npm install
 npm run dev
 ```
+change the base url in services of app.js and socket.js
+to the backend local route 
 
 Open the URL shown in the terminal to access the frontend application.
 
@@ -113,7 +117,7 @@ Open the URL shown in the terminal to access the frontend application.
 
 * Node.js
 * Express.js
-* WebSockets
+* Socket.io ( Websocket )
 * REST APIs
 
 ### Tools & Others
@@ -121,6 +125,7 @@ Open the URL shown in the terminal to access the frontend application.
 * Git & GitHub
 * Vercel (Frontend deployment)
 * Environment-based configuration
+* Render (Backend deployment)
 
 ---
 
@@ -151,3 +156,5 @@ A team of developers building practical, full-stack applications with a focus on
 This project is open-source and intended for learning and development purposes.
 
 ```
+
+
