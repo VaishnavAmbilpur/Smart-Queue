@@ -107,7 +107,7 @@ Open the URL shown in the terminal to access the frontend application.
 * JavaScript
 * Vite
 * HTML5
-* CSS3
+* Tailwind CSS
 
 ### Backend
 
