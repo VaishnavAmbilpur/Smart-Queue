@@ -51,6 +51,7 @@ export default function DoctorDashboard() {
 
   return (
     <div className="min-h-screen w-full overflow-x-hidden
+    relative 
     flex justify-center items-center
     bg-gradient-to-br from-[#0f172a] via-[#020617] to-[#001d3d] p-6">
 

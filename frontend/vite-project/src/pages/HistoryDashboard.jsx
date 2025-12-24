@@ -24,7 +24,9 @@ export default function HistoryDashboard() {
   }, []);
 
   return (
-    <div className="min-h-screen w-full overflow-x-hidden p-6
+    <div className="min-h-screen w-full overflow-x-hidden
+      relative
+      p-6
       bg-gradient-to-br from-[#0f172a] via-[#020617] to-[#001d3d]">
 
       {/* Glow Backgrounds */}

@@ -3,7 +3,13 @@ import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0f172a] via-[#020617] to-[#001d3d] flex justify-center items-center p-6">
+    <div className="
+      min-h-screen w-full 
+      overflow-x-hidden
+      relative
+      bg-gradient-to-br from-[#0f172a] via-[#020617] to-[#001d3d] 
+      flex justify-center items-center p-6">
+
 
       <div className="absolute w-96 h-96 bg-blue-500/20 blur-[140px] rounded-full top-10 left-10"></div>
       <div className="absolute w-96 h-96 bg-cyan-400/20 blur-[140px] rounded-full bottom-10 right-10"></div>
