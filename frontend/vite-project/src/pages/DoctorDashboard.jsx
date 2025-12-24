@@ -55,11 +55,10 @@ export default function DoctorDashboard() {
     flex justify-center items-center
     bg-gradient-to-br from-[#0f172a] via-[#020617] to-[#001d3d] p-6">
 
-      {/* Background Glows */}
+  
       <div className="absolute w-96 h-96 bg-blue-500/20 blur-[140px] rounded-full top-10 left-10"></div>
       <div className="absolute w-96 h-96 bg-cyan-400/20 blur-[140px] rounded-full bottom-10 right-10"></div>
 
-      {/* Card */}
       <div className="relative w-full max-w-[420px]
         bg-white/10 backdrop-blur-xl
         border border-white/20
@@ -78,7 +77,7 @@ export default function DoctorDashboard() {
           </p>
         )}
 
-        {/* Doctor Info */}
+
         <div className="mt-5 bg-white/10 border border-white/20
         rounded-2xl p-5 shadow">
           <p className="text-gray-200"><b>Name:</b> {doctor.name}</p>
@@ -97,7 +96,7 @@ export default function DoctorDashboard() {
           </p>
         </div>
 
-        {/* Avg Time */}
+
         <div className="mt-4 bg-white/10 border border-white/20 rounded-2xl p-5 shadow">
           <p className="text-gray-200 font-semibold">
             ⏳ Current Average Consultation Time:
@@ -108,7 +107,6 @@ export default function DoctorDashboard() {
           </p>
         </div>
 
-        {/* Availability Buttons */}
         <h3 className="mt-6 font-semibold text-center text-gray-300">
           Change Availability
         </h3>
@@ -136,7 +134,7 @@ export default function DoctorDashboard() {
           ))}
         </div>
 
-        {/* Avg Time Input */}
+  
         <h3 className="mt-6 font-semibold text-center text-gray-300">
           Set Average Consultation Time
         </h3>
@@ -161,7 +159,7 @@ export default function DoctorDashboard() {
           </button>
         </div>
 
-        {/* Logout */}
+
         <button
           onClick={logout}
           className="mt-6 w-full
