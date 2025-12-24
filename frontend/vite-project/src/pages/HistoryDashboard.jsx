@@ -29,14 +29,14 @@ export default function HistoryDashboard() {
       p-6
       bg-gradient-to-br from-[#0f172a] via-[#020617] to-[#001d3d]">
 
-      {/* Glow Backgrounds */}
+   
       <div className="absolute w-96 h-96 bg-blue-500/20 blur-[140px]
         rounded-full top-10 left-10" />
 
       <div className="absolute w-96 h-96 bg-cyan-400/20 blur-[140px]
         rounded-full bottom-10 right-10" />
 
-      {/* Main Card */}
+   
       <div className="relative max-w-5xl mx-auto
         bg-white/10 backdrop-blur-xl
         border border-white/20
@@ -48,7 +48,7 @@ export default function HistoryDashboard() {
           Patient History Log
         </h2>
 
-        {/* Filters */}
+  
         <div className="mt-6 grid md:grid-cols-4 gap-3">
           <input
             type="date"
@@ -89,7 +89,7 @@ export default function HistoryDashboard() {
           </button>
         </div>
 
-        {/* SCROLLABLE TABLE FIX */}
+  
         <div className="mt-6 overflow-x-auto rounded-2xl border border-white/10">
           <table className="min-w-full">
             <thead className="bg-white/10 text-gray-200">
