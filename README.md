@@ -1,3 +1,24 @@
+🏥 Problem Statement & Solution Overview
+
+In many hospitals and clinics, patients face long waiting times, uncertainty about their turn, frequent crowding at reception, and a lack of transparency in the consultation process. Receptionists struggle to manage queues manually, doctors have no real‑time control over patient flow, and patients remain unaware of their exact position in line. This leads to frustration, inefficiency, and poor experience for both patients and healthcare staff.
+
+💡 Our Solution
+
+This Smart Hospital Queue Management System digitizes and streamlines the entire queue process. The reception team can easily register patients and automatically generate a unique live‑tracking link for each patient. Patients can monitor their real‑time status, position in the queue, and estimated waiting time from their phones—reducing anxiety and crowding.
+
+Doctors get a dedicated dashboard to control availability, manage consultation time, pause queues, and mark patients as completed or cancelled. The system also supports reordering of top priority patients and maintains a secure history log with filters for tracking past records.
+
+👥 Intended Users
+
+    Patients – to track live queue status and reduce waiting frustration
+
+    Reception Staff – to manage entries efficiently without manual effort
+
+    Doctors / Healthcare Providers – to control workflow and improve consultation management
+
+This system ultimately enhances transparency, efficiency, and trust in hospital queue management.
+
+
 # Smart Queue
 
 Smart Queue is a full-stack web application that digitizes and simplifies queue management for real-world use cases such as clinics, service centers, offices, and counters.
