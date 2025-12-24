@@ -1,19 +1,19 @@
-
 # Smart Queue
 
-Smart Queue is a web-based queue management system designed to simplify and digitize waiting lines in places clinic and Hospitals.
+Smart Queue is a full-stack web application that digitizes and simplifies queue management for real-world use cases such as clinics, service centers, offices, and counters.
 
-It allows users to take a queue number and view the current queue status, while staff can manage and advance the queue efficiently.
+Users can take and track queue numbers through a clean frontend interface, while the backend manages queue state, validations, and real-time updates.
 
 ---
 
 ## 🚀 Features
 
-- Users can take a queue ticket online
-- View current queue status in real time
-- Admin/staff can advance the queue
-- Clean and responsive user interface
-- Separate frontend and backend architecture
+- Digital queue ticket generation
+- Real-time queue status tracking
+- Backend-driven queue management
+- Modular backend architecture
+- Modern frontend built with Vite
+- Designed for scalability and real-world usage
 
 ---
 
@@ -22,78 +22,111 @@ It allows users to take a queue number and view the current queue status, while 
 ```
 
 Smart-Queue/
-├── backend/           # Server-side logic and APIs
-├── frontend/          # Client-side UI (Vite / JS)
-├── .gitignore
-├── package.json
+├── backend/
+│   ├── config/         # App & environment configuration
+│   ├── middleware/     # Custom middleware
+│   ├── models/         # Database models
+│   ├── routes/         # API routes
+│   ├── socket/         # WebSocket logic
+│   ├── utils/          # Utility functions
+│   ├── validators/    # Request validation logic
+│   ├── .env            # Environment variables
+│   ├── server.js       # Backend entry point
+│   └── package.json
+│
+├── frontend/
+│   └── vite-project/
+│       ├── public/     # Static assets
+│       ├── src/        # Frontend source code
+│       ├── index.html
+│       ├── vite.config.js
+│       ├── vercel.json
+│       └── package.json
+│
 └── README.md
 
 ````
 
 ---
 
-## 🛠️ Getting Started
+## 🛠️ Setup Instructions
 
-### 🔹 Clone the Repository
+### 🔹 Prerequisites
 
-```bash
-git clone https://github.com/VaishnavAmbilpur/Smart-Queue.git
-cd Smart-Queue
-````
+- Node.js (v18+ recommended)
+- npm or yarn
+- Git
 
 ---
 
-## 🔧 Backend Setup
+### 🔧 Backend Setup
 
 ```bash
 cd backend
 npm install
+````
+
+Create a `.env` file in the `backend` folder and configure required environment variables.
+
+Start the backend server:
+
+```bash
 npm start
 ```
 
-The backend server will start on the configured local port.
+The backend will run on the configured port (default: `http://localhost:5000`).
 
 ---
 
-## 🚀 Frontend Setup
+### 🎨 Frontend Setup
 
 ```bash
-cd frontend
+cd frontend/vite-project
 npm install
 npm run dev
 ```
 
-Open the URL shown in the terminal to access the application.
+Open the URL shown in the terminal to access the frontend application.
 
 ---
 
-## 📌 How It Works
+## 🔁 How the System Works
 
-1. Users open the frontend and take a queue number.
-2. The backend stores and updates the queue state.
-3. Admin/staff can move the queue forward.
-4. Users can track their position in the queue.
+1. Users access the frontend and request a queue ticket.
+2. Requests are sent to the backend via REST APIs.
+3. Backend manages queue state and validations.
+4. Queue updates are reflected in real time using sockets.
+5. Staff/admin actions advance or modify the queue.
 
 ---
 
 ## 🧠 Tech Stack
 
-* **Frontend:** JavaScript, Vite, HTML, CSS
-* **Backend:** Node.js, Express
-* **Architecture:** REST APIs
+### Frontend
 
----
+* JavaScript
+* Vite
+* HTML5
+* CSS3
 
-## 🔮 Future Improvements
+### Backend
 
-* Admin authentication
-* Live notifications for users
-* Queue analytics and wait-time estimation
-* Mobile-first UI improvements
+* Node.js
+* Express.js
+* WebSockets
+* REST APIs
+
+### Tools & Others
+
+* Git & GitHub
+* Vercel (Frontend deployment)
+* Environment-based configuration
 
 ---
 
 ## 👨‍💻 Team — The Debuggers
+
+A team of developers building practical, full-stack applications with a focus on clean code, scalability, and real-world use cases.
 
 | Name                            | Role                             |
 | ------------------------------- | -------------------------------- |
@@ -102,15 +135,19 @@ Open the URL shown in the terminal to access the application.
 | 👨‍💻 **Vishnu Vardhan Vemula** | Full Stack Developer             |
 | 👨‍💻 **Aadithya Motapalukula** | Full Stack Developer             |
 
+---
+
+## 🔮 Future Enhancements
+
+* Authentication for admins/staff
+* Notifications for users
+* Queue analytics and wait-time estimation
+* Improved mobile experience
 
 ---
 
 ## 📜 License
 
-This project is open-source and available for learning and development purposes.
-
-```
-
----
+This project is open-source and intended for learning and development purposes.
 
 ```
