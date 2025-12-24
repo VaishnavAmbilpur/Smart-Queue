@@ -75,34 +75,24 @@ export default function ReceptionPanel() {
   }
 
   async function moveUp(index) {
-  const topLimit = Math.min(3, queue.length);
-  if (index === 0 || index >= topLimit) return;
+    if (index === 0) return;
+    const topThree = [...queue.slice(0, 3)];
+    [topThree[index - 1], topThree[index]] = [topThree[index], topThree[index - 1]];
 
-  const updated = [...queue];
-  [updated[index - 1], updated[index]] = [updated[index], updated[index - 1]];
+    await api.put(`/queue/reorder/${doctorId}`, {
+      newOrder: topThree.map(p => p._id)
+    });
+  }
 
-  setQueue(updated); 
+  async function moveDown(index) {
+    if (index === 2) return;
+    const topThree = [...queue.slice(0, 3)];
+    [topThree[index + 1], topThree[index]] = [topThree[index], topThree[index + 1]];
 
-  await api.put(`/queue/reorder/${doctorId}`, {
-    newOrder: updated.map(p => p._id)
-  });
-}
-
-async function moveDown(index) {
-  const topLimit = Math.min(3, queue.length);
-  if (index >= topLimit - 1) return;
-
-  const updated = [...queue];
-  [updated[index + 1], updated[index]] = [updated[index], updated[index + 1]];
-
-  setQueue(updated); 
-
-  await api.put(`/queue/reorder/${doctorId}`, {
-    newOrder: updated.map(p => p._id)
-  });
-}
-
-
+    await api.put(`/queue/reorder/${doctorId}`, {
+      newOrder: topThree.map(p => p._id)
+    });
+  }
 
   return (
     <div className="min-h-screen
@@ -180,9 +170,9 @@ async function moveDown(index) {
                 <tr>
                   <td colSpan="6" className="p-6">
                     <Loader />
-                  </td>
-                </tr>
-              )}
+          </td>
+    </tr>
+  )}
 
 
 
@@ -223,7 +213,7 @@ async function moveDown(index) {
                     </td>
 
                     <td className="px-4 py-3 flex gap-2 justify-center">
-                      {idx < Math.min(3, queue.length)&& (
+                      {idx < 3 && (
                         <>
                           <button
                             className="px-3 bg-blue-500 hover:bg-blue-600 rounded shadow"
