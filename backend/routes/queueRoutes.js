@@ -36,40 +36,7 @@ router.post("/add", auth, async (req, res) => {
   }
 });
 
-// router.get("/history", auth, async (req, res) => {
-//   try {
-//     const { date, status, search } = req.query;
 
-//     let filter = {
-//       doctorId: req.doctorId,
-//       status: { $in: ["completed", "cancelled"] }
-//     };
-
-//     if (status) filter.status = status;
-
-//     if (search)
-//       filter.name = { $regex: search, $options: "i" };
-
-//     if (date) {
-//       const start = new Date(date);
-//       const end = new Date(date);
-
-//       if (isNaN(start.getTime())) {
-//         return res.status(400).json({ message: "Invalid Date Format" });
-//       }
-
-//       end.setHours(23, 59, 59, 999);
-//       filter.completedAt = { $gte: start, $lte: end };
-//     }
-
-//     const history = await Patient.find(filter).sort({ completedAt: -1 });
-
-//     res.json(history);
-//   } catch (err) {
-//     console.error("History Fetch Error:", err);
-//     res.status(500).json({ message: "Server Error" });
-//   }
-// });
 router.get("/history/", auth, async (req, res) => {
   try {
     const { date, status, search } = req.query;
@@ -203,32 +170,6 @@ router.put("/cancel/:id", auth, async (req, res) => {
   }
 });
 
-
-// router.put("/reorder/:doctorId", auth, async (req, res) => {
-//   try {
-//     const { newOrder } = req.body; 
-
-//     const queue = await Patient.find({
-//       doctorId: req.params.doctorId,
-//       status: "waiting"
-//     }).sort({ tokenNumber: 1 });
-
-//     if (queue.length < 3)return res.json({ message: "Less than 3 patients" });
-
-//     for (let i = 0; i < newOrder.length; i++) {
-//       await Patient.findByIdAndUpdate(newOrder[i], {
-//         tokenNumber: i + 1
-//       });
-//     }
-
-//     global.io.to(req.params.doctorId.toString()).emit("queueUpdated");
-
-//     res.json({ message: "Reordered successfully" });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json({ message: "Server error" });
-//   }
-// });
 
 
 router.put("/reorder/:doctorId", auth, async (req, res) => {
