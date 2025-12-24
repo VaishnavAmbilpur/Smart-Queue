@@ -19,7 +19,7 @@ Doctors get a dedicated dashboard to control availability, manage consultation t
 This system ultimately enhances transparency, efficiency, and trust in hospital queue management.
 
 
-# Smart Queue
+# Smart Queue ( Live https://smart-queue-theta.vercel.app/ )
 
 Smart Queue is a full-stack web application that digitizes and simplifies queue management for real-world use cases such as clinics, service centers, offices, and counters.
 
